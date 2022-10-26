@@ -6,16 +6,16 @@ Minizinc software [Download](https://www.minizinc.org/software.html)
 
 ## Project Progression
 ### Problem 0: Introduction
-[ ] Done?
+- [ ] Done?
 
 ### Problem 1: Easy Level
-[ ] Done?
+- [ ] Done?
 
 ### Problem 2: Normal Level
-[ ] Done?
+- [ ] Done?
 
 ### Problem 3: Hard Level
-[ ] Done?
+- [ ] Done?
 
 ### Problem 4: *Extreme* Level
-[ ] Done?
+- [ ] Done?
