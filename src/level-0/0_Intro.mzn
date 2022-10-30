@@ -18,7 +18,7 @@ constraint digits[2] > digits[0];
 % Digits sum
 constraint sum(i in 0..3) (digits[i]) > 15;
 
-% Problem formulation
+% Problem formulation: minimize some product
 solve minimize digits[0]*digits[1]*digits[2];
 
 % Compute number
