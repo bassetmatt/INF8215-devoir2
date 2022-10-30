@@ -6,7 +6,7 @@ Minizinc software [Download](https://www.minizinc.org/software.html)
 
 ## Project Progression
 ### Problem 0: Introduction
-- [ ] Done?
+- [x] Done?
 
 ### Problem 1: Easy Level
 - [ ] Done?
