@@ -17,7 +17,8 @@ constraint chiffres[1] < chiffres[0];
 constraint chiffres[2] > chiffres[0];
 
 %Digits sum
-constraint chiffres[0] + chiffres[1] + chiffres[2] + chiffres[3] > 15;
+%constraint chiffres[0] + chiffres[1] + chiffres[2] + chiffres[3] > 15;
+constraint sum(i in 0..3) (chiffres[i]) > 15;
 
 %Minimize
 solve minimize chiffres[0]*chiffres[1]*chiffres[2];
