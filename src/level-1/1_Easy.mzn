@@ -32,11 +32,7 @@ constraint card(x) <= u;
 
 % Attractivity
 var int: attractivity;
-attractivity  = sum(act1 in x) (
-                  sum(act2 in x) (
-                    pair_attraction[act1, act2]
-                  )
-                ) div 2;
+attractivity = sum(act1 in x, act2 in x) (pair_attraction[act1, act2]) div 2;
 constraint attractivity >= m;
 
 % Cost caclulation
