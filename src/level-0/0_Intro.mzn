@@ -1,28 +1,29 @@
 include "globals.mzn";
 
-var int: nombre;
-array[0..3] of var 1..9: chiffres;
+var int: number;
+% 0 is not a digit
+array[0..3] of var 1..9: digits;
 
 % Even
-constraint chiffres[0] mod 2 = 0;
+constraint digits[0] mod 2 = 0;
 
-%Different digits
-constraint alldifferent(chiffres);
+% Different digits
+constraint alldifferent(digits);
 
-% Constrait about digits bigger thaan others
-constraint chiffres[3] > chiffres[2];
-constraint chiffres[1] < chiffres[0];
-constraint chiffres[2] > chiffres[0];
+% Constrait about digits bigger than others
+constraint digits[3] > digits[2];
+constraint digits[1] < digits[0];
+constraint digits[2] > digits[0];
 
-%Digits sum
-constraint sum(i in 0..3) (chiffres[i]) > 15;
+% Digits sum
+constraint sum(i in 0..3) (digits[i]) > 15;
 
-%Minimize
-solve minimize chiffres[0]*chiffres[1]*chiffres[2];
+% Problem formulation
+solve minimize digits[0]*digits[1]*digits[2];
 
-% Build number
-nombre = sum(i in 0..3)(chiffres[i]*pow(10,i));
+% Compute number
+number = sum(i in 0..3)(digits[i]*pow(10,i));
 
 output [
-  show(nombre) %9412
+  show(number) %9412
 ];
