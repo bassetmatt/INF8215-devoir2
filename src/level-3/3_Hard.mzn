@@ -15,25 +15,16 @@ constraint forall(i in 1..n) (
     alldifferent(x[i,..]) /\ alldifferent(x[..,i])
 );
 
-% Tells if the m-th tower is visible by comparing it to the tower in front
-% Must have m >= 2
-predicate isVisible(array[int] of var int: x, int: m) =
-    x[m] > max(x[1..m-1]);
 
-/** 
-* Calculates the number of visible tower for a given row
-*
-* @param x (int[]) The array containing the number of houses 
-*
-* @return          The number of visible houses in the row
-*/
+% Function that calculates the number of visible houses in a row
+
 function var int: numVisible(array[int] of var int: x) =
     % The first house is always visible
-    1 + sum(i in 2..n) (
-        % Converts bool in int
-        % TODO see if mandatory?
-        (if isVisible(x,i) then 1 else 0 endif) 
-    );
+    % The i-th tower is visible if higher than the previous
+    1 + sum(i in 2..n)( bool2int(x[i] > max(x[1..i-1])) );
+
+/* Alternative: count([x[i] > max(x[1..i-1]) | i in 2..n], true)
+   Less clear, same execution time */
 
 % Constraints left to right
 constraint forall(i in 1..n)(numVisible(        x[i,..] ) == l_r[i]);
