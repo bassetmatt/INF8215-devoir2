@@ -16,7 +16,9 @@ Minizinc software [Download](https://www.minizinc.org/software.html)
 - [x] Done
 
 ### Problem 3: Hard Level
-- [ ] Done?
+- [x] Done
+- [ ] Additional optimization checks
 
-### Problem 4: *Extreme* Level
+### Problem 4: *Extreme* Level 
 - [ ] Done?
+WIP, problem is almost correctly formulated
