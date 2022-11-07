@@ -9,6 +9,30 @@ array[1..n] of int: r_l = [1,4,2,2,2]; % right to left
 
 array[1..n, 1..n] of var 1..n: x;      % hauteur des tours à chaque position
 
+predicate transpose(array[int, int] of var int: x, array[int, int] of var int: t) =
+   forall(i in index_set_1of2(x), j in index_set_2of2(x) ) (
+      t[j,i] = x[i,j]
+   )
+;
+
+constraint forall(i in 1..n) (
+    alldifferent(x[i,..]) /\ alldifferent(x[..,i])
+);
+
+predicate isVisible(array[int] of var int: x, int: m) =
+    x[m] > max(x[1..m-1]);
+
+function var int: numVisible(array[int] of var int: x) =
+    1 + sum(i in 2..n) (
+        (if isVisible(x,i) then 1 else 0 endif)
+    );
+
+constraint forall(i in 1..n)(numVisible(        x[i,..] ) == l_r[i]);
+constraint forall(i in 1..n)(numVisible(reverse(x[i,..])) == r_l[i]);
+constraint forall(j in 1..n)(numVisible(        x[..,j] ) == t_b[j]);
+constraint forall(j in 1..n)(numVisible(reverse(x[..,j])) == b_t[j]);
+
+solve satisfy;
 output 
 
 ["Configuration : \n"]
