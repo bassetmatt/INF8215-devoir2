@@ -20,5 +20,12 @@ Minizinc software [Download](https://www.minizinc.org/software.html)
 - [ ] Additional optimization checks
 
 ### Problem 4: *Extreme* Level 
-- [ ] Done?
-WIP, problem is almost correctly formulated
+- [x] Done
+- [ ] Heavy optimisation
+The problem takes a very long time to run for data 0 and 2 (resp 7s and 1mn), something must be optimised
+Or maybe ask if the runtime is to be expected?
+
+## Doc
+Doc for more details about some functions
+### Problem 4
+[all_different_except_0](https://www.minizinc.org/doc-2.6.4/en/lib-globals-alldifferent.html#all-equal)
