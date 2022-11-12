@@ -35,11 +35,11 @@ constraint card(x) <= u;
 /*
   * Attractivity:
   * It's the sum of the attractivity of each pair divided by two because if
-  * we sum all pairs, we count each different pair two times (eg A,B and B,A)
+  * we sum all pairs, we count each different pair two times (e.g. A,B and B,A)
   * and the attractivity of A,A is 0 so we don't have to verify act1 != act2
   */
 var int: attractivity;
-attractivity = sum(act1 in x, act2 in x) (pair_attraction[act1, act2]) div 2;
+constraint 2 * attractivity = sum(act1 in x, act2 in x) (pair_attraction[act1, act2]);
 % Minimal activity constraint
 constraint attractivity >= m;
 
