@@ -25,5 +25,5 @@ solve minimize digits[0]*digits[1]*digits[2];
 number = sum(i in 0..3)(digits[i]*pow(10,i));
 
 output [
-  show(number) %9412
+  show(number)
 ];
