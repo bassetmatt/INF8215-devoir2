@@ -1,5 +1,5 @@
 include "globals.mzn";
-include "4_Extreme_Data_0.dzn";
+include "4_Extreme_Data_2.dzn";
 
 /*
  * Problem main definition
@@ -83,7 +83,7 @@ constraint forall( proj in project_must_be_done)(
 constraint forall(proj in project_with_precedences)(
     % precedence[proj,w] returns the workers in the expected order
     % and `increasing` checks if their days are ordered 
-    increasing([ day[ precedences[ proj, w ], proj ] | w in WORKER ])
+    increasing([ day[ precedences[ proj, i ], proj ] | i in 1..3 ])
 );
 
 /*
